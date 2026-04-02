@@ -5,7 +5,6 @@ from pathlib import Path
 
 
 #Criando função para salvar o arquivo
-
 def download_graph(caminho):
     estado = ox.graph_from_place("Rio de Janeiro, Brazil", network_type='drive') # mapeia vias no qual apenas o veículos urbanos podem transitar
     estado = ox.add_edge_speeds(estado) # calcula a velocidade das vias do rio de janeiro
