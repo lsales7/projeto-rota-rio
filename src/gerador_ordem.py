@@ -1,8 +1,6 @@
 import pandas as pd
 import random
-import osmnx as ox
 from carregar_grafos import load_graph
-
 
 
 def gerador_ordens(grafo, qtd_pedidos):
@@ -21,3 +19,11 @@ def gerador_ordens(grafo, qtd_pedidos):
         lista_nos_sorteados.append(dados)
     dados = pd.DataFrame(lista_nos_sorteados)
     return dados
+
+
+if __name__ == "__main__":
+    caminho_pkl = (r"data\raw\rj_grafo.pkl")
+    grafos_carregados = load_graph(caminho_pkl)
+    df = gerador_ordens(grafos_carregados, 7)
+    print(df)
+
