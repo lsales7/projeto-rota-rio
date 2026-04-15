@@ -24,6 +24,6 @@ def gerador_ordens(grafo, qtd_pedidos):
 if __name__ == "__main__":
     caminho_pkl = (r"data\raw\rj_grafo.pkl")
     grafos_carregados = load_graph(caminho_pkl)
-    df = gerador_ordens(grafos_carregados, 7)
+    df = gerador_ordens(grafos_carregados, 10)
     print(df)
 
