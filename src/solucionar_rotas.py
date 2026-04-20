@@ -2,7 +2,7 @@
 import pandas as pd
 import osmnx as ox
 import networkx as nx
-from carregar_grafos import load_graph
+from carregar_grafos import carregar_grafo
 from gerador_ordem import gerador_ordens
 from tempo_viagem import calcular_tempo_viagem
 
@@ -64,7 +64,7 @@ def distribuir_pedidos_veiculos(grafo, pedidos, frota, galpao_base): #função p
                 
 
 if __name__ == "__main__": #modulo principal para execução do código
-    g = load_graph("data/raw/rj_grafo.pkl") #carrega o grafo do Rio de Janeiro
+    g = carregar_grafo("data/raw/rj_grafo.pkl") #carrega o grafo do Rio de Janeiro
     galpao_base = ox.distance.nearest_nodes(g, X=-43.311, Y=-22.785) #Coordenada da base de operações
     pedidos = gerador_ordens(grafo=g, qtd_pedidos=500) #Gerador de pedidos, criando um DF
     programacao = distribuir_pedidos_veiculos(grafo=g, pedidos=pedidos, frota=frota, galpao_base=galpao_base) #função para resolver o problema de rota, carregando os pedidos nos veículos da frota

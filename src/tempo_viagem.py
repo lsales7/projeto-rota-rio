@@ -1,6 +1,6 @@
 import networkx as nx
 import osmnx as ox
-from carregar_grafos import load_graph
+from carregar_grafos import carregar_grafo
 
 def calcular_tempo_viagem(grafo, origem, destino):
     try:
