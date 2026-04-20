@@ -67,13 +67,5 @@ if __name__ == "__main__":
     programacao = resolver_vrp(grafo=g, pedidos=pedidos, frota=frota)
     for programacoes in programacao:
         print(f"Veículo: {programacoes['tipo']} | Carga: {programacoes['carga_atual']}kg | Pedidos: {len(programacoes['pedidos'])}")
-        
-    
-        
-            
-                
-                
 
-
-            
 
