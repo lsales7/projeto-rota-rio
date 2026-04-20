@@ -69,16 +69,6 @@ if __name__ == "__main__": #modulo principal para execução do código
     pedidos = gerador_ordens(grafo=g, qtd_pedidos=500) #Gerador de pedidos, criando um DF
     programacao = distribuir_pedidos_veiculos(grafo=g, pedidos=pedidos, frota=frota, galpao_base=galpao_base) #função para resolver o problema de rota, carregando os pedidos nos veículos da frota
     for programacoes in programacao:
-<<<<<<< HEAD:src/vrp_solver.py
         print(f"Veículo: {programacoes['tipo']} | Carga: {programacoes['carga_atual']}kg | Pedidos: {len(programacoes['pedidos'])}")
-=======
-        print(f"Veículo: {programacoes['tipo']} | Carga: {programacoes['carga_atual']}kg | Pedidos: {len(programacoes['pedidos'])}") #imprime o titpo de veículo e a capacidade atual de carga 
-        
-    
-        
-            
-                
-                
->>>>>>> f115c0aceae84df30ce5bab1636ac15434ae5734:src/solucionar_rotas.py
 
 
