@@ -122,10 +122,7 @@ O Rio de Janeiro possui restrições de circulação para veículos de carga def
 
 ## Próximos passos
 
-- Análise comparativa entre rota otimizada e distribuição aleatória, quantificando a economia de tempo;
-- Implementação do algoritmo Nearest Neighbor para seleção geográfica do veículo mais próximo de cada pedido;
-- Respeito às janelas de horário de entrega como restrição hard no algoritmo;
-- Modelagem das restrições de circulação por zona e horário.
+- Análise comparativa entre rota otimizada e distribuição aleatória, quantificando a economia de tempo.
 
 ---
 
