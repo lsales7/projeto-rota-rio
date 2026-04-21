@@ -3,7 +3,7 @@ import folium
 import osmnx as ox
 from carregar_grafos import carregar_grafo
 from gerador_ordem import gerador_ordens
-from solucionar_rotas import distribuir_pedidos_veiculos
+from solucionar_rotas import distribuir_pedidos_veiculos, frota
 
 
 cores = {
@@ -21,15 +21,16 @@ def visualizar_rotas(programacao, galpao_base, grafo):
             folium.CircleMarker(
                 location=[pedido['lat'], pedido['lon']], 
                 radius=6, color=cores[programacoes['tipo']], 
-                popup=f"Pedido: {pedido['nodeid']} | Peso: {pedido['peso_kg']}kg | Janela: {pedido['janela_inicio']}h-{pedido['janela_fim']}h"
+                popup=f"Veiculo: {programacoes['tipo']} | Pedido: {pedido['nodeid']} | Peso: {pedido['peso_kg']}kg | Janela: {pedido['janela_inicio']}h-{pedido['janela_fim']}h"
                 ).add_to(mapa_rj)
     return mapa_rj
 
 if __name__ == '__main__':
     grafo = carregar_grafo(r"data\raw\rj_grafo.pkl")
     galpao = ox.distance.nearest_nodes(grafo, X=-43.311, Y=-22.785)
-    pedidos = gerador_ordens(grafo=grafo, qtd_pedidos=gerador_ordens['pedido'])
-    distribuir_pedidos = distribuir_pedidos_veiculos(grafo=grafo, pedidos=500, frota=pedidos, galpao_base=galpao)
-    mapa = visualizar_rotas(programacao=distribuir_pedidos, galpao_base=galpao, grafo=grafo).save("data/processed/mapa_rotas.html")
+    pedidos = gerador_ordens(grafo=grafo, qtd_pedidos=500)
+    distribuir_pedidos = distribuir_pedidos_veiculos(grafo=grafo, pedidos=pedidos, frota=frota, galpao_base=galpao)
+    mapa = visualizar_rotas(programacao=distribuir_pedidos, galpao_base=galpao, grafo=grafo)
+    mapa.save("data/raw/mapa_rotas.html")
     
     
