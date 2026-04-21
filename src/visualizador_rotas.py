@@ -3,7 +3,7 @@ import folium
 import osmnx as ox
 from carregar_grafos import carregar_grafo
 from gerador_ordem import gerador_ordens
-from solucionar_rotas import distribuir_pedidos_veiculos, frota
+from vrp_solucao import distribuir_pedidos_veiculos, frota
 
 
 cores = {
